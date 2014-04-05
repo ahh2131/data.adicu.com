@@ -27,9 +27,9 @@ class Importer(object):
 
     def create_table(self):
         assert len(self.schema) > 0, "Schema is not defined."
-        print "Creating table `%s` with schema." $ self.table_name
+        print "Creating table `%s` with schema." % self.table_name
         cursor = self.conn.cursor()
-        db_query = 'CREATE TABLE IF NOT EXISTS housing_t (%s);' % (", ".join(
+        db_query = 'CREATE TABLE IF NOT EXISTS %s (%s);' % (self.table_name, ", ".join(
             ['%s %s' % column for column in schema]))
         cursor.execute(db_query)
         self.conn.commit()
@@ -38,3 +38,5 @@ class Importer(object):
         print "Dropping table `%s`." % self.table_name
         self.cursor.execute("DROP TABLE %s;", self.table_name)
         self.conn.commit()
+
+    def import_data(self, dump_file, self.filetype):
