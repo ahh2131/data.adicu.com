@@ -11,7 +11,7 @@ import config.flask_config as config
 class Importer(object):
     def __init__(self, schema):
         self.table_name = None
-        self.schema = schema
+        self.schema = None
         self._init_pg()
 
     def _init_pg(self):
@@ -39,4 +39,7 @@ class Importer(object):
         self.cursor.execute("DROP TABLE %s;", self.table_name)
         self.conn.commit()
 
-    def import_data(self, dump_file, self.filetype):
+    def send_query(query):
+      return 0
+      
+    def
